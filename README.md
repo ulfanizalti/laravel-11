@@ -1,14 +1,9 @@
-# carbonphp/carbon-doctrine-types
+# Doctrine Lexer
 
-Types to use Carbon in Doctrine
+[![Build Status](https://github.com/doctrine/lexer/workflows/Continuous%20Integration/badge.svg)](https://github.com/doctrine/lexer/actions)
 
-## Documentation
+Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.
 
-[Check how to use in the official Carbon documentation](https://carbon.nesbot.com/symfony/)
+This lexer is used in Doctrine Annotations and in Doctrine ORM (DQL).
 
-This package is an externalization of [src/Carbon/Doctrine](https://github.com/briannesbitt/Carbon/tree/2.71.0/src/Carbon/Doctrine)
-from `nestbot/carbon` package.
-
-Externalization allows to better deal with different versions of dbal. With
-version 4.0 of dbal, it no longer sustainable to be compatible with all version
-using a single code.
+https://www.doctrine-project.org/projects/lexer.html
