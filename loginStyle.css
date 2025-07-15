@@ -1,0 +1,597 @@
+/* General Styling & Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Menggunakan font Poppins */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Memastikan body mengisi seluruh tinggi viewport */
+    background: url('bg.png') no-repeat center center fixed;
+    /* Ganti 'images/background.jpg' dengan path gambar Anda */
+    background-size: cover;
+    /* Memastikan gambar mencakup seluruh area */
+    position: relative;
+    /* Diperlukan untuk positioning overlay */
+    overflow: hidden;
+    /* Mencegah scrollbar jika ada elemen yang keluar batas */
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 228, 238, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 0;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+/* Login Container & Card */
+.login-container {
+    position: relative;
+    /* Agar login-card bisa di-z-index di atas overlay */
+    z-index: 1;
+    /* Pastikan card di atas overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    /* Padding agar card tidak terlalu mepet ke tepi layar mobile */
+    box-sizing: border-box;
+    /* Memastikan padding tidak menambah ukuran total */
+}
+
+.login-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Latar belakang putih semi-transparan */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    max-width: 450px;
+    /* Lebar maksimum card */
+    width: 100%;
+    /* Memastikan card mengambil 100% lebar yang tersedia dalam max-width */
+    box-sizing: border-box;
+    display: flex;
+    /* Untuk menata konten di dalamnya */
+    flex-direction: column;
+    gap: 20px;
+    /* Jarak antar elemen di dalam card */
+}
+
+.login-card h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 25px;
+    /* Jarak bawah judul */
+    font-weight: 600;
+}
+
+/* Auth Buttons (Login/Registrasi) */
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    /* Latar belakang tombol grup */
+    border-radius: 10px;
+    padding: 5px;
+    gap: 10px;
+}
+
+.auth-buttons .btn {
+    flex: 1;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #555;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    outline: none;
+    /* Hilangkan outline fokus default */
+}
+
+.auth-buttons .btn.active {
+    background-color: #e0e0e0;
+    /* Warna aktif untuk login */
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.auth-buttons .btn:nth-child(2).active {
+    /* Untuk tombol registrasi yang aktif */
+    background-color: #f8d7da;
+    /* Warna pink untuk registrasi */
+    color: #c4384d;
+}
+
+.auth-buttons .btn:hover:not(.active) {
+    background-color: #e9e9e9;
+}
+
+/* Form Styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Jarak antar input group */
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 0;
+    /* Mengelola jarak dengan gap di form */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    box-sizing: border-box;
+    /* Pastikan padding tidak menambah lebar input */
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #ff99bb;
+    /* Warna border saat fokus */
+    box-shadow: 0 0 0 3px rgba(255, 153, 187, 0.2);
+}
+
+.forgot-password {
+    text-align: right;
+    display: block;
+    /* Agar bisa pakai text-align */
+    font-size: 0.9em;
+    color: #666;
+    text-decoration: none;
+    margin-top: -5px;
+    /* Sedikit naik agar dekat dengan input password */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #ff6699;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #ff6699;
+    /* Warna tombol login */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none;
+}
+
+.btn-login:hover {
+    background-color: #ff4d88;
+    transform: translateY(-2px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.register-link {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 15px;
+    /* Jarak dari tombol login */
+}
+
+.register-link a {
+    color: #007bff;
+    /* Warna biru untuk tautan daftar sekarang */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.login-as {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 25px;
+    /* Jarak dari register-link */
+    border-top: 1px solid #eee;
+    /* Garis pemisah */
+    padding-top: 20px;
+    /* Padding di atas garis */
+}
+
+.login-as span {
+    font-weight: 600;
+    color: #444;
+    font-style: italic;
+    /* Sesuai gambar */
+}
+
+/* Responsive Design */
+
+/* Untuk layar tablet (misal, 768px dan di bawahnya) */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 30px;
+        /* Kurangi padding */
+        border-radius: 15px;
+        /* Kurangi radius sudut */
+    }
+
+    .login-card h2 {
+        font-size: 2em;
+        /* Kurangi ukuran judul */
+        margin-bottom: 20px;
+    }
+
+    .auth-buttons {
+        gap: 8px;
+        /* Kurangi gap tombol */
+        padding: 4px;
+    }
+
+    .auth-buttons .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .input-group input {
+        padding: 12px 18px;
+        /* Kurangi padding input */
+        font-size: 0.95em;
+    }
+
+    .btn-login {
+        padding: 12px 18px;
+        font-size: 1.1em;
+    }
+
+    .forgot-password,
+    .register-link,
+    .login-as {
+        font-size: 0.85em;
+        /* Kurangi ukuran font teks lainnya */
+    }
+}
+
+/* Untuk layar mobile (misal, 480px dan di bawahnya) */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 15px;
+        /* Kurangi padding container */
+    }
+
+    .login-card {
+        padding: 25px;
+        /* Lebih kecil lagi padding card */
+        border-radius: 12px;
+    }
+
+    .login-card h2 {
+        font-size: 1.8em;
+        /* Ukuran judul lebih kecil */
+        margin-bottom: 15px;
+    }
+
+    .auth-buttons .btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .input-group input {
+        padding: 10px 15px;
+        /* Padding input lebih kecil */
+        font-size: 0.9em;
+    }
+
+    .btn-login {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    .forgot-password,
+    .register-link,
+    .login-as {
+        font-size: 0.8em;
+        /* Ukuran font terkecil untuk teks lainnya */
+    }
+
+    .login-as {
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+}
+
+/* ------------------------------------------------------------------------------- */
+
+/* --- Tambahan/Modifikasi CSS untuk Halaman Registrasi --- */
+
+/* Menggunakan kembali styling dasar dari login-container/card */
+/* Jika Anda menggunakan kelas register-container/register-card, pastikan mereka mewarisi gaya dasar */
+
+/* Dalam bagian Form Styling Anda */
+.login-form,
+/* Terapkan juga ke form login agar konsisten */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    /* Ubah gap ini */
+    gap: 18px;
+    /* Contoh: Tingkatkan gap sedikit antar elemen di form */
+    width: 100%;
+}
+
+.register-card h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 20px;
+    /* Jarak bawah judul */
+    font-weight: 600;
+}
+
+/* Untuk layar tablet (misal, 768px dan di bawahnya) */
+@media (max-width: 768px) {
+    /* ... kode yang sudah ada ... */
+
+    .login-form,
+    .register-form {
+        gap: 15px;
+        /* Kurangi gap di tablet */
+    }
+
+    .register-link,
+    .login-link {
+        margin-top: 20px;
+        /* Kurangi jarak di tablet */
+    }
+
+    .login-as {
+        margin-top: 25px;
+        /* Kurangi jarak di tablet */
+        padding-top: 18px;
+    }
+}
+
+/* Untuk layar mobile (misal, 480px dan di bawahnya) */
+@media (max-width: 480px) {
+    /* ... kode yang sudah ada ... */
+
+    .login-form,
+    .register-form {
+        gap: 12px;
+        /* Lebih kecil lagi gap di mobile */
+    }
+
+    .register-link,
+    .login-link {
+        margin-top: 18px;
+        /* Lebih kecil lagi jarak di mobile */
+    }
+
+    .login-as {
+        margin-top: 20px;
+        /* Lebih kecil lagi jarak di mobile */
+        padding-top: 15px;
+    }
+}
+
+/* Dan pastikan input-group tidak memiliki margin-bottom yang konflik jika sudah ada */
+.input-group {
+    margin-bottom: 0;
+    /* Pastikan ini 0 karena kita pakai gap di form */
+}
+
+.register-container {
+    /* Mirip dengan .login-container */
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.register-card {
+    /* Mirip dengan .login-card */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Modifikasi untuk tombol otentikasi di halaman registrasi */
+/* Ini akan mengubah warna tombol "Registrasi" menjadi aktif saat di halaman register */
+/* Karena di register.html, tombol pertama (Login) tidak punya active, dan tombol kedua (Registrasi) punya active */
+.auth-buttons .btn.active {
+    background-color: #f8d7da;
+    /* Warna pink untuk Registrasi yang aktif */
+    color: #c4384d;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Override untuk tombol login yang tidak aktif di halaman registrasi (yang pertama) */
+.register-card .auth-buttons .btn:first-child:not(.active) {
+    background-color: transparent;
+    /* Pastikan login tidak memiliki latar belakang jika tidak aktif */
+    color: #555;
+}
+
+/* Styling untuk tombol "Daftar" */
+.btn-register {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #ff6699;
+    /* Warna tombol registrasi */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none;
+    margin-top: 5px;
+    /* Sedikit jarak dari input terakhir */
+}
+
+.btn-register:hover {
+    background-color: #ff4d88;
+    transform: translateY(-2px);
+}
+
+.btn-register:active {
+    transform: translateY(0);
+}
+
+/* Styling untuk link "Sudah punya akun?" */
+.login-link {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 15px;
+    /* Jarak dari tombol Daftar */
+}
+
+.login-link a {
+    color: #007bff;
+    /* Warna biru untuk tautan login sekarang */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Karena di halaman register tidak ada "Login Sebagai Admin", kita bisa menyembunyikannya */
+/* Ini hanya relevan jika elemen .login-as tetap ada di HTML register.html tapi tidak ingin ditampilkan */
+/* Jika Anda sudah menghapus elemen .login-as dari register.html, bagian ini tidak diperlukan */
+.register-card .login-as {
+    display: none;
+}
+
+
+/* Media Queries untuk Responsivitas (sesuaikan dengan yang ada di style.css Anda) */
+
+/* Untuk layar tablet (misal, 768px dan di bawahnya) */
+@media (max-width: 768px) {
+
+    /* Kelas .register-card akan mengikuti penyesuaian .login-card */
+    .register-card {
+        padding: 30px;
+        border-radius: 15px;
+    }
+
+    .register-card h2 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    /* Penyesuaian tombol dan input tetap berlaku */
+    .btn-register {
+        padding: 12px 18px;
+        font-size: 1.1em;
+    }
+
+    .login-link {
+        font-size: 0.85em;
+    }
+}
+
+/* Untuk layar mobile (misal, 480px dan di bawahnya) */
+@media (max-width: 480px) {
+
+    /* Kelas .register-card akan mengikuti penyesuaian .login-card */
+    .register-card {
+        padding: 25px;
+        border-radius: 12px;
+    }
+
+    .register-card h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    /* Penyesuaian tombol dan input tetap berlaku */
+    .btn-register {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    .login-link {
+        font-size: 0.8em;
+    }
+}
+
+.popup-error {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffe4e6;
+    /* soft pink background */
+    color: #b71c1c;
+    /* deep pinkish red for text */
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideDownFade 0.5s ease;
+    max-width: 90%;
+    text-align: center;
+}
+
+.popup-error ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.popup-error li {
+    font-size: 1rem;
+}
+
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}

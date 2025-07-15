@@ -1,0 +1,463 @@
+/* --- Variabel Warna & Font Dasar --- */
+:root {
+    --bg-light-pink: #FFF9F9;
+    --primary-pink: #F7C5D4;
+    --accent-pink: #E6A6B8;
+    --text-dark: #333333;
+    --white: #FFFFFF;
+    --border-light: #EAEAEA;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light-pink);
+    color: var(--text-dark);
+}
+
+.container {
+    padding: 2rem;
+}
+
+/* --- Header & Navigasi --- */
+.main-header {
+    background-color: var(--primary-pink);
+    padding: 1rem;
+    text-align: center;
+}
+
+.main-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.main-nav {
+    background-color: var(--primary-pink);
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--accent-pink);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    background-color: var(--accent-pink);
+}
+
+.main-nav ul li a.active {
+    background-color: var(--accent-pink);
+    border-bottom: 3px solid #b37086;
+}
+
+/* --- Kartu Ringkasan --- */
+.summary-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    /* Agar responsif */
+}
+
+.card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    /* Lebar minimum kartu */
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.card .number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* --- Riwayat Pesanan & Tabel --- */
+.order-history {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.order-history h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    /* Membuat tabel bisa di-scroll horizontal di layar kecil */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+thead tr {
+    background-color: var(--accent-pink);
+}
+
+thead th {
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--bg-light-pink);
+}
+
+tbody tr:hover {
+    background-color: #fceef3;
+}
+
+
+
+
+/* --- Media Queries untuk Responsivitas --- */
+
+/* Untuk Tablet */
+@media (max-width: 992px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .summary-cards {
+        gap: 1.5rem;
+    }
+}
+
+/* Untuk Mobile */
+@media (max-width: 768px) {
+    .main-nav ul {
+        flex-wrap: wrap;
+        /* Menu akan turun ke bawah jika tidak muat */
+        justify-content: center;
+    }
+
+    .main-nav ul li a {
+        padding: 0.7rem 1rem;
+    }
+
+    .summary-cards {
+        flex-direction: column;
+        /* Kartu akan tersusun vertikal */
+        gap: 1rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .card .number {
+        font-size: 3rem;
+    }
+
+    .order-history {
+        padding: 1.5rem;
+    }
+}
+
+
+/* Lihaty Bukti */
+
+/* Tambahkan ini ke file style.css Anda */
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.btn-lihat {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: #fff;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--accent-pink);
+    transition: all 0.3s ease;
+}
+
+.btn-lihat:hover {
+    background-color: var(--bg-light-pink);
+    color: #000;
+}
+
+/* Halaman Pesanan Baru */
+
+/* --- Gaya Halaman Formulir (Pesanan Baru) --- */
+.form-container {
+    background-color: var(--bg-light-pink);
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 600px;
+    /* Lebar maksimal form agar tidak terlalu lebar di desktop */
+    margin: 0 auto;
+    /* Membuat form berada di tengah */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #e0c8d1;
+    background-color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 0 3px rgba(230, 166, 184, 0.4);
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-submit {
+    background-color: var(--primary-pink);
+    color: var(--text-dark);
+    border: none;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-pink);
+    transform: translateY(-2px);
+}
+
+/* Penyesuaian responsif untuk form */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1.5rem;
+    }
+}
+
+
+/* halaman Recap */
+
+/* --- TAMBAHKAN KODE DI BAWAH INI KE file style.css ANDA --- */
+
+/* --- Gaya Halaman Recap --- */
+
+/* Navigasi Tab Bulan */
+.month-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    /* Agar rapi di mobile */
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    background-color: var(--primary-pink);
+    border-radius: 10px;
+}
+
+.month-tabs a {
+    flex-grow: 1;
+    /* Agar setiap tab memenuhi ruang */
+    text-align: center;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.month-tabs a:hover {
+    background-color: #fceef3;
+    /* Warna hover yang lebih soft */
+}
+
+.month-tabs a.active {
+    background-color: var(--accent-pink);
+    color: var(--text-dark);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabel Rekapitulasi */
+.recap-table {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+/* Mengatur agar header tabel rekap tidak memiliki background */
+.recap-table thead tr {
+    background-color: transparent;
+}
+
+.recap-table thead th {
+    font-weight: 700;
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--primary-pink);
+}
+
+.recap-table tbody tr:hover {
+    background-color: var(--bg-light-pink);
+}
+
+.logout-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: #333333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-btn:hover,
+.logout-btn:focus {
+    background-color: #f3b6c0;
+    color: #000;
+}
+
+.icon-btn {
+    background: #ffe4e6;
+    /* soft pink */
+    border: none;
+    border-radius: 50%;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 0.2rem;
+    text-decoration: none;
+    /* for <a> */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background: #fcbac5;
+    /* deeper pink on hover */
+    transform: scale(1.1);
+}
+
+a img,
+form img {
+    width: 30px;
+    height: 30px;
+    stroke: #b71c1c;
+    /* deep pinkish red */
+}
+
+.popup-error {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffe4e6;
+    /* soft pink background */
+    color: #b71c1c;
+    /* deep pinkish red for text */
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideDownFade 0.5s ease;
+    max-width: 90%;
+    text-align: center;
+}
+
+.popup-error ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.popup-error li {
+    font-size: 1rem;
+}
+
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.text-center {
+    text-align: center;
+}
